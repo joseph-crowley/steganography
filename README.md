@@ -5,8 +5,6 @@ CLI tool for encoding and decoding messages in images using Least Significant Bi
 ## Features
 
 - **LSB Steganography**: Encode and decode messages in images using the least significant bit technique.
-- **Batch Processing**: Encode and decode messages in multiple images at once.
-- **Metadata Preservation**: Preserve image metadata during encoding and decoding.
 - **Multiple Image Formats**: Support for encoding and decoding in various image formats (PNG, JPEG, etc.).
 
 ## Installation
