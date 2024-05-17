@@ -6,6 +6,8 @@ CLI tool for encoding and decoding messages in images using Least Significant Bi
 
 - **LSB Steganography**: Encode and decode messages in images using the least significant bit technique.
 - **Multiple Image Formats**: Support for encoding and decoding in various image formats (PNG, JPEG, etc.).
+- **Encoding Modes**: Support for encoding messages in RGB channels or the alpha channel of images.
+- **Delimiters**: Use delimiters to mark the end of encoded messages.
 
 ## Installation
 
@@ -35,24 +37,32 @@ CLI tool for encoding and decoding messages in images using Least Significant Bi
 
 To encode a message in an image:
 ```bash
-steganography encode <image_path> <message> <output_path>
+steganography encode <image_path> <message> <output_path> [--mode <mode>]
 ```
+- `<image_path>`: Path to the input image file.
+- `<message>`: The message to encode into the image.
+- `<output_path>`: Path to save the output image file.
+- `--mode <mode>`: (Optional) The channel to use for encoding ('rgb' or 'alpha'). Default is 'rgb'.
 
 Example:
 ```bash
-steganography encode input.png "This is a hidden message" output.png
+steganography encode input.png "This is a hidden message" output.png --mode rgb
 ```
 
 ### Decoding a Message
 
 To decode a message from an image:
 ```bash
-steganography decode <image_path>
+steganography decode <image_path> [--mode <mode>] [--use-delimiter] [--delimiter <delimiter>]
 ```
+- `<image_path>`: Path to the input image file.
+- `--mode <mode>`: (Optional) The channel to use for decoding ('rgb' or 'alpha'). Default is 'rgb'.
+- `--use-delimiter`: (Optional) Whether to use a delimiter to determine the end of the message.
+- `--delimiter <delimiter>`: (Optional) The delimiter to use if `--use-delimiter` is enabled. Default is '~END~'.
 
 Example:
 ```bash
-steganography decode output.png
+steganography decode output.png --mode rgb --use-delimiter --delimiter "~END~"
 ```
 
 ## Testing
